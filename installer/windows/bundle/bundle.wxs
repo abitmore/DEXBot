@@ -8,7 +8,7 @@
           Version='$(var.ApplicationVersion)'
           Manufacturer="$(var.Manufacturer)"
           IconSourceFile="assets/dexbot-icon.ico"
-          UpgradeCode="5397E671-1059-487E-9E26-FD5E1095F77D">
+          UpgradeCode="1B96DE0B-928B-46D1-B05C-E5247BAA3F78">
 
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkLicense" >
       <bal:WixStandardBootstrapperApplication
@@ -23,13 +23,12 @@
       <Variable Name="SetupText" Value="[ProgramFiles64Folder]Python[WinVerNoDot]" bal:Overridable="yes" />
       <Variable Name="TargetPlatform" Value="x64" />
     <?else ?>
-      <Variable Name="DefaultAllUsersTargetDir" Value="[ProgramFilesFolder]Python[WinVerNoDot]" bal:Overridable="yes" />
+      <Variable Name="DefaultAllUsersTargetDir" Value="[ProgramFiles64Folder]Python[WinVerNoDot]" bal:Overridable="yes" />
       <Variable Name="TargetPlatform" Value="x86" />
     <?endif ?>
-    <Variable Name="LaunchTarget" Value="[ProgramFilesFolder]\Bitshares\DEXBot\DEXBot.exe"/>
+    <Variable Name="LaunchTarget" Value="[ProgramFiles64Folder]\EVRAZ\DEXBot\DEXBot.exe"/>
 
     <Chain>
-
       <ExePackage Id="Python"
                   SourceFile="prerequisites\python-3.6.6.exe"
                   Cache="yes"
@@ -40,7 +39,7 @@
                   InstallCommand="/q Include_pip=1 PrependPath=1 Include_launcher=1 Include_test=0"
                   />
       <ExePackage Id="Uptick" DisplayName="Processing Uptick..." InstallCommand="cmd /K" SourceFile="prerequisites\uptick.bat" Vital="no" After="DEXBot"/>
-      <MsiPackage Id="DEXBot" After="Python" SourceFile="..\msi\bin\$(var.Build)\DEXBotInstaller.msi" DisplayName="Processing DEXBot..." />
+      <MsiPackage Id="DEXBot" After="Python" SourceFile="..\msi\bin\$(var.Build)\DEXBotInstaller.msi" DisplayName="Processing DEXBot..." DisplayInternalUI="yes" />
     </Chain>
 	</Bundle>
 </Wix>

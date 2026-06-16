@@ -19,6 +19,9 @@
   <property name="windowTitle">
    <string>Create wallet</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#dadada</string>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
@@ -32,7 +35,7 @@
       </sizepolicy>
      </property>
      <property name="text">
-      <string>Before you can start using DEXBot, you need to create an uptick wallet.</string>
+      <string>Before you can start using EVRAZ DEXbot, you need to create an uptick wallet.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -90,22 +93,6 @@
            <property name="text">
             <string>Uptick Wallet password</string>
            </property>
-           <property name="buddy">
-            <cstring>password_input</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="password_input">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
-           </property>
           </widget>
          </item>
          <item row="3" column="1">
@@ -128,22 +115,6 @@
           <widget class="QLabel" name="confirm_password_label">
            <property name="text">
             <string>Confirm password</string>
-           </property>
-           <property name="buddy">
-            <cstring>confirm_password_input</cstring>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="confirm_password_input">
-           <property name="minimumSize">
-            <size>
-             <width>200</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
            </property>
           </widget>
          </item>
@@ -172,8 +143,6 @@
   </layout>
  </widget>
  <tabstops>
-  <tabstop>password_input</tabstop>
-  <tabstop>confirm_password_input</tabstop>
   <tabstop>ok_button</tabstop>
  </tabstops>
  <resources/>

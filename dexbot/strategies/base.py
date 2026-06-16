@@ -10,6 +10,7 @@ from dexbot.pricefeeds.bitshares_feed import BitsharesPriceFeed
 from dexbot.qt_queue.idle_queue import idle_add
 from dexbot.storage import Storage
 from dexbot.strategies.config_parts.base_config import BaseConfig
+from dexbot.translator_strings import TranslatorStrings as TS
 
 # Number of maximum retries used to retry action before failing
 MAX_TRIES = 3
@@ -144,7 +145,7 @@ class StrategyBase(BitsharesOrderEngine, BitsharesPriceFeed):
 
         :param worker_name: Name of the worker to be removed
         """
-        Storage.clear_worker_data(worker_name)
+        Storage(worker_name).clear_worker_data()
 
     @classmethod
     def configure(cls, return_base_config=True):
@@ -198,7 +199,7 @@ class StrategyBase(BitsharesOrderEngine, BitsharesPriceFeed):
             else:
                 return (1 - intersections_data['sum_pct']) / intersections_data['num_zero_workers']
         else:
-            self.log.error('Got asset which is not used by this worker')
+            self.log.error(TS.base)
 
     def get_operational_balance(self) -> Dict[str, float]:
         """
